@@ -1,0 +1,33 @@
+--options
+-- save
+vim.keymap.set("n", "<C-s>", ":w<CR>")
+
+-- buffer
+vim.keymap.set("n", "<C-n>", ":BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<C-p>", ":BufferLineCyclePrev<CR>")
+
+--togle transparent
+vim.keymap.set("n", "Tt", ":TransparentToggle<CR>")
+
+-- switch windows
+vim.keymap.set('n', '<C-l>', '<C-w>l')
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+
+-- nvim tree
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+
+-- close buffer
+vim.keymap.set("n", '<leader>q', ':q<CR>')
+
+vim.keymap.set("n", "|", ":vsplit<CR>")
+vim.keymap.set("n", "-", ":split<CR>")
+vim.keymap.set("n", "<M-w>", ":close<CR>")
+
+vim.api.nvim_set_keymap('n', '<leader>pv', ':Vex<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
+
+-- "n - mode , nore no recursive execution, map"
+-- nnoremap <leader>pv :Vex<CR>
