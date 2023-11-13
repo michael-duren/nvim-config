@@ -19,3 +19,9 @@ require("toggleterm").setup {
         },
     },
 }
+
+for i = 1, 5 do
+    vim.keymap.set('t', '<C-'..i..'>', function()
+        require("toggleterm").exec_command("ToggleTerm"..i)
+    end, {noremap = true, silent = true})
+end
