@@ -44,6 +44,10 @@ local plugins = {
   -- zero - lsp
   { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
   { 'neovim/nvim-lspconfig' },
+  -- null-ls
+  {
+    "jose-elias-alvarez/null-ls.nvim"
+  },
   -- cmp
   { 'hrsh7th/cmp-nvim-lsp' }, -- source for builtin LSP client
   { 'hrsh7th/nvim-cmp', lazy = false },     -- completion plugin
@@ -116,7 +120,8 @@ local plugins = {
     opts = {}
   },
   -- schemastore
-  { "b0o/schemastore.nvim" }
+  { "b0o/schemastore.nvim" },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 }
 
 require("lazy").setup(plugins)

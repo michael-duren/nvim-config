@@ -78,4 +78,5 @@ if vim.g.lsp_setup_ready == nil then
       }
     },
   })
+  lspconfig.omnisharp.setup({ capabilities = lsp_capabilities, })
 end

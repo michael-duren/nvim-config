@@ -12,6 +12,8 @@ require("michael.plugin-config.alpha")
 require("michael.plugin-config.telescope")
 require("michael.plugin-config.toggleterm")
 require("michael.plugin-config.schemastore")
+require("michael.plugin-config.null-ls")
+require("michael.plugin-config.blankline")
 
 -- color scheme
 require("michael.core.colorscheme")
