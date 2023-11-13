@@ -11,7 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Plugins
 local plugins = {
   -- mason
   {
@@ -101,8 +100,15 @@ local plugins = {
       { "nvim-telescope/telescope-fzy-native.nvim" },
     },
   },
-
-
+  { "nvim-lua/popup.nvim" },
+  { "nvim-lua/plenary.nvim" },
+  -- toggle term
+  { 'akinsho/toggleterm.nvim', version = "*", config = true },
+  -- copilot
+  {
+    "github/copilot.vim",
+    lazy = false
+  },
   -- auto pairs
   {
     'windwp/nvim-autopairs',
@@ -113,4 +119,3 @@ local plugins = {
 
 require("lazy").setup(plugins)
 require("mason").setup()
-

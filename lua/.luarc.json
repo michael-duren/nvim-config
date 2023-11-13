@@ -1,7 +1,6 @@
 {
     "diagnostics.globals": [
         "vim",
-        "lvim",
         "reload",
         "lzp_zero"
     ]
