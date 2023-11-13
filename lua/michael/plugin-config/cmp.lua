@@ -1,4 +1,5 @@
-local cmp = require 'cmp'
+local cmp = require('cmp')
+local icons = require('michael.core.icons')
 
 cmp.setup({
   snippet = {
@@ -16,5 +17,14 @@ cmp.setup({
     { name = 'luasnip' },
   }, {
     { name = 'buffer' },
-  })
+  }),
+  formatting = {
+  format = function(_, vim_item)
+    local icon = icons.kind[vim_item.kind]
+    if icon then
+      vim_item.kind = icon 
+    end
+    return vim_item
+  end
+  }
 })

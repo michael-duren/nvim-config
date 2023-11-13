@@ -29,11 +29,14 @@ vim.api.nvim_set_keymap('n', '<leader>pv', ':Vex<CR>', { noremap = true, silent 
 vim.api.nvim_set_keymap('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
 
+-- source init.lua
+vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>")
+
 -- telescope
 vim.keymap.set('n', '<leader>?', '<cmd>Telescope oldfiles<cr>')
 vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>')
 vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+vim.keymap.set('n', '<leader>ts', '<cmd>Telescope live_grep<cr>', {remap = true})
 vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
 vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 vim.keymap.set('n', '<leader>p', '<cmd>Telescope commands<cr>')

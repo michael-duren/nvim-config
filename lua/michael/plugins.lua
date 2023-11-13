@@ -46,7 +46,7 @@ local plugins = {
   { 'neovim/nvim-lspconfig' },
   -- cmp
   { 'hrsh7th/cmp-nvim-lsp' }, -- source for builtin LSP client
-  { 'hrsh7th/nvim-cmp' },     -- completion plugin
+  { 'hrsh7th/nvim-cmp', lazy = false },     -- completion plugin
   { 'L3MON4D3/LuaSnip' },     -- Lua snippets engine
   { 'hrsh7th/cmp-buffer' },   -- source for buffer words
   { 'hrsh7th/cmp-path' },     -- source for paths
@@ -115,6 +115,8 @@ local plugins = {
     event = "InsertEnter",
     opts = {}
   },
+  -- schemastore
+  { "b0o/schemastore.nvim" }
 }
 
 require("lazy").setup(plugins)

@@ -26,3 +26,16 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.softtabstop = 4
   end,
 })
+
+-- 4 tab spacing for rs files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "rs",
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+  end,
+})
+
+-- copy to and from system clipboard
+vim.o.clipboard = "unnamedplus"
