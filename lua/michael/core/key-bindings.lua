@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>")
 vim.keymap.set('n', '<leader>?', '<cmd>Telescope oldfiles<cr>')
 vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>')
 vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-vim.keymap.set('n', '<leader>ts', '<cmd>Telescope live_grep<cr>', {remap = true})
+vim.keymap.set('n', '<leader>ts', '<cmd>Telescope live_grep<cr>', { remap = true })
 vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
 vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 vim.keymap.set('n', '<leader>p', '<cmd>Telescope commands<cr>')
@@ -50,6 +50,9 @@ vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+
+-- bufferline
+vim.keymap.set('n', '<leader>Ko', '<cmd>BufferLineCloseOthers<CR>')
 
 -- "n - mode , nore no recursive execution, map"
 -- nnoremap <leader>pv :Vex<CR>
