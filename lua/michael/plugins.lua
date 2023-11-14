@@ -49,7 +49,6 @@ local plugins = {
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   { "neovim/nvim-lspconfig" },
-
   -- zero - lsp
   { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
   { 'neovim/nvim-lspconfig' },
@@ -134,7 +133,13 @@ local plugins = {
   { "b0o/schemastore.nvim" },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   -- bufferline
-  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+  -- lua line
+  {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    lazy = false,
+  },
 }
 
 require("lazy").setup(plugins)
