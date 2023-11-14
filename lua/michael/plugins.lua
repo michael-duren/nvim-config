@@ -41,9 +41,6 @@ local plugins = {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
   },
   -- mason - lsp
   { "williamboman/mason.nvim" },
@@ -141,9 +138,15 @@ local plugins = {
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     lazy = false,
   },
+  { 'arkav/lualine-lsp-progress' },
+  -- nvim colorizer
+  { 'norcalli/nvim-colorizer.lua',    event = "BufRead" },
   -- rust tools
   { 'simrat39/rust-tools.nvim' },
-  { 'mfussenegger/nvim-dap' }
+  -- dap
+  { 'mfussenegger/nvim-dap' },
+  { 'theHamsta/nvim-dap-virtual-text' },
+  { 'rcarriga/nvim-dap-ui' },
 }
 
 require("lazy").setup(plugins)

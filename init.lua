@@ -21,6 +21,7 @@ require("michael.plugin-config.comment")
 require("michael.plugin-config.lualine")
 require("michael.plugin-config.bufferline")
 require("michael.plugin-config.lsp-zero")
+require("michael.plugin-config.nvimtree")
 
 -- color scheme
 require("michael.core.colorscheme")
