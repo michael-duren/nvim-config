@@ -91,27 +91,16 @@ local keybindings = {
   -- Misc
   {
     mode = "n",
-    key = "<leader>pv",
-    command = ":Vex<CR>",
-    description = "Vex command",
-    options = {
-      noremap = true, silent = true }
-  },
-  {
-    mode = "n",
     key = "<leader><CR>",
     command = ":so ~/.config/nvim/init.lua<CR>",
-    description = "Reload init.lua",
-    options = { noremap = true, silent = false }
+    options = { noremap = true, silent = false, desc = "Reload init.lua", }
   },
   {
     mode = "n",
     key = "<leader>w",
     command = ":w<CR>",
-    description =
-    "Save current buffer",
     options = {
-      noremap = true, silent = true }
+      noremap = true, silent = true, desc = "Write current buffer" }
   },
   -- Telescope
   {
@@ -206,7 +195,7 @@ local keybindings = {
     mode = "n",
     key = "<leader>c",
     command = function() buff_kill() end,
-    description = "Close buffer with buff_kill function"
+    description = "Close"
   }
 
 }
