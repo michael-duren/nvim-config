@@ -9,6 +9,9 @@ vim.keymap.set("n", "<C-p>", ":BufferLineCyclePrev<CR>")
 --togle transparent
 vim.keymap.set("n", "Tt", ":TransparentToggle<CR>")
 
+-- hide search highlight
+vim.keymap.set("n", "<leader>h", ":noh<CR>")
+
 -- switch windows
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-h>', '<C-w>h')
@@ -40,6 +43,13 @@ vim.keymap.set('n', '<leader>ts', '<cmd>Telescope live_grep<cr>', {remap = true}
 vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
 vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 vim.keymap.set('n', '<leader>p', '<cmd>Telescope commands<cr>')
+
+-- lsp
+vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
 -- "n - mode , nore no recursive execution, map"
 -- nnoremap <leader>pv :Vex<CR>

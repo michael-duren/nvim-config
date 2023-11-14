@@ -24,6 +24,15 @@ local plugins = {
       require 'alpha'.setup(require 'alpha.themes.startify'.config)
     end,
   },
+  -- Comment
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+        -- add any options here
+        sticky = true,
+    },
+    lazy = false,
+  },
   -- nvim tree
   {
     "nvim-tree/nvim-tree.lua",
@@ -108,6 +117,8 @@ local plugins = {
   { "nvim-lua/plenary.nvim" },
   -- toggle term
   { 'akinsho/toggleterm.nvim', version = "*", config = true },
+  -- gitsigns
+  { "lewis6991/gitsigns.nvim", },
   -- copilot
   {
     "github/copilot.vim",
@@ -122,6 +133,8 @@ local plugins = {
   -- schemastore
   { "b0o/schemastore.nvim" },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  -- bufferline
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}
 }
 
 require("lazy").setup(plugins)
