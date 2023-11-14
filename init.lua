@@ -1,4 +1,5 @@
--- opts & bindings
+-- core
+require("michael.core.autocmds")
 require("michael.core.options")
 require("michael.core.key-bindings")
 
@@ -25,5 +26,5 @@ require("michael.plugin-config.lsp-zero")
 require("michael.plugin-config.nvimtree")
 require("michael.plugin-config.whichkey")
 
--- color scheme
+-- colorscheme
 require("michael.core.colorscheme")

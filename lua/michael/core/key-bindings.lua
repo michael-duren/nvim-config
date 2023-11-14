@@ -102,6 +102,12 @@ local keybindings = {
     options = {
       noremap = true, silent = true, desc = "Write current buffer" }
   },
+  {
+    mode = "n",
+    key = "<leader>?",
+    command = ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>",
+    description = "Open settings"
+  },
   -- Telescope
   {
     mode = "n",
