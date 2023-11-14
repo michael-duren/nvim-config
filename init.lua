@@ -29,6 +29,7 @@ require("michael.plugin-config.bufferline")
 require("michael.plugin-config.lsp-zero")
 require("michael.plugin-config.nvimtree")
 require("michael.plugin-config.whichkey")
+require("michael.plugin-config.friendly-snippets")
 
 -- colorscheme
 require("michael.core.colorscheme")
