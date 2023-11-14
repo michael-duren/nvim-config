@@ -6,9 +6,13 @@ require("michael.core.key-bindings")
 -- plugin installs
 require("michael.plugins")
 
+-- config neodev before lsp
+require("michael.plugin-config.neodev")
+
 -- lsp
 require("michael.lsp")
 require("michael.lsp.rust")
+require("michael.lsp.csharp")
 
 -- plugin configs
 require("michael.plugin-config.cmp")

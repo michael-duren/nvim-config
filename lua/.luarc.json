@@ -2,6 +2,7 @@
     "diagnostics.globals": [
         "vim",
         "reload",
-        "lzp_zero"
+        "lzp_zero",
+        "asdf"
     ]
 }
