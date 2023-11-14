@@ -28,8 +28,8 @@ local plugins = {
   {
     'numToStr/Comment.nvim',
     opts = {
-        -- add any options here
-        sticky = true,
+      -- add any options here
+      sticky = true,
     },
     lazy = false,
   },
@@ -54,15 +54,16 @@ local plugins = {
   { 'neovim/nvim-lspconfig' },
   -- null-ls
   {
-    "jose-elias-alvarez/null-ls.nvim"
+    "jose-elias-alvarez/null-ls.nvim",
+    lazy = false,
   },
   -- cmp
-  { 'hrsh7th/cmp-nvim-lsp' }, -- source for builtin LSP client
-  { 'hrsh7th/nvim-cmp', lazy = false },     -- completion plugin
-  { 'L3MON4D3/LuaSnip' },     -- Lua snippets engine
-  { 'hrsh7th/cmp-buffer' },   -- source for buffer words
-  { 'hrsh7th/cmp-path' },     -- source for paths
-  { 'hrsh7th/cmp-cmdline' },  -- Cmdline completions
+  { 'hrsh7th/cmp-nvim-lsp' },              -- source for builtin LSP client
+  { 'hrsh7th/nvim-cmp',    lazy = false }, -- completion plugin
+  { 'L3MON4D3/LuaSnip' },                  -- Lua snippets engine
+  { 'hrsh7th/cmp-buffer' },                -- source for buffer words
+  { 'hrsh7th/cmp-path' },                  -- source for paths
+  { 'hrsh7th/cmp-cmdline' },               -- Cmdline completions
   -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
@@ -131,15 +132,18 @@ local plugins = {
   },
   -- schemastore
   { "b0o/schemastore.nvim" },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",  opts = {} },
   -- bufferline
-  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+  { 'akinsho/bufferline.nvim',             version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
   -- lua line
   {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     lazy = false,
   },
+  -- rust tools
+  { 'simrat39/rust-tools.nvim' },
+  { 'mfussenegger/nvim-dap' }
 }
 
 require("lazy").setup(plugins)
