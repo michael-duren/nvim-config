@@ -1,3 +1,5 @@
+local buff_kill = require("michael.utils.buff_kill")
+
 --options
 -- save
 vim.keymap.set("n", "<C-s>", ":w<CR>")
@@ -22,6 +24,7 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- close buffer
+vim.keymap.set("n", "<leader>c", ":bd<CR>")
 vim.keymap.set("n", '<leader>q', ':q<CR>')
 
 vim.keymap.set("n", "|", ":vsplit<CR>")
@@ -36,13 +39,15 @@ vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = t
 vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>")
 
 -- telescope
-vim.keymap.set('n', '<leader>?', '<cmd>Telescope oldfiles<cr>')
-vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>')
+vim.keymap.set('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>')
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
 vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-vim.keymap.set('n', '<leader>ts', '<cmd>Telescope live_grep<cr>', { remap = true })
+vim.keymap.set('n', '<leader>ft', '<cmd>Telescope live_grep<cr>')
 vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
 vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
-vim.keymap.set('n', '<leader>p', '<cmd>Telescope commands<cr>')
+vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
+vim.keymap.set('n', '<leader>fp', '<cmd>Telescope commands<cr>')
+vim.keymap.set('n', '<leader>fk', '<cmd>Telescope keymaps<cr>')
 
 -- lsp
 vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
@@ -53,6 +58,9 @@ vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
 -- bufferline
 vim.keymap.set('n', '<leader>Ko', '<cmd>BufferLineCloseOthers<CR>')
+vim.keymap.set('n', '<leader>c', function()
+  buff_kill()
+end)
 
 -- "n - mode , nore no recursive execution, map"
 -- nnoremap <leader>pv :Vex<CR>
