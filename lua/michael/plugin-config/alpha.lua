@@ -1,6 +1,7 @@
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 local banner = require("michael.core.alpha.banner")
+local icons = require("michael.core.icons")
 
 dashboard.section.header.val = banner.banner
 
@@ -13,7 +14,7 @@ dashboard.section.buttons.val = {
 }
 
 dashboard.section.footer.val = {
-  "LSP client:  ",
+  icons.misc.Heart .. " Configured by Michael Duren " .. icons.diagnostics.Hint,
   dashboard.lsp_client_names,
 }
 

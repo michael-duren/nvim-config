@@ -143,6 +143,7 @@ local icons = {
     Trace = "✎",
   },
   misc = {
+    Heart = "",
     Robot = "󰚩",
     Squirrel = "",
     Tag = "",
