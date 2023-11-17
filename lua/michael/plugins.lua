@@ -164,7 +164,19 @@ local plugins = {
 			-- configurations go here
 		},
 	},
+	-- neodev, autocomplete for api for neovim
 	{ "folke/neodev.nvim", opts = {} },
+	-- tailwindcss colors
+	{
+		"themaxmarchuk/tailwindcss-colors.nvim",
+		-- load only on require("tailwindcss-colors")
+		-- run the setup function after plugin is loaded
+		config = function()
+			-- pass config options here (or nothing to use defaults)
+			require("tailwindcss-colors").setup()
+		end,
+	},
+	{ "norcalli/nvim-colorizer.lua" }, -- colorize hex colors
 }
 
 require("lazy").setup(plugins)

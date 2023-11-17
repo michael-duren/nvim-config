@@ -78,5 +78,8 @@ if vim.g.lsp_setup_ready == nil then
 			},
 		},
 	})
-	lspconfig.omnisharp.setup({ capabilities = lsp_capabilities })
+	lspconfig.omnisharp.setup({
+		cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+		capabilities = lsp_capabilities,
+	})
 end

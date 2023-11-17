@@ -30,6 +30,8 @@ require("michael.plugin-config.lsp-zero")
 require("michael.plugin-config.nvimtree")
 require("michael.plugin-config.whichkey")
 require("michael.plugin-config.friendly-snippets")
+require("michael.plugin-config.tailwind-color")
+require("michael.plugin-config.colorizer")
 
 -- colorscheme
 require("michael.core.colorscheme")
