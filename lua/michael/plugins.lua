@@ -97,14 +97,6 @@ local plugins = {
 			vim.o.timeoutlen = 300
 		end,
 	},
-	-- theme
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
-
 	-- telescope
 	{
 		"nvim-telescope/telescope.nvim",
@@ -202,6 +194,29 @@ local plugins = {
 			"rcarriga/nvim-notify",
 		},
 	},
+	-- toggle transparency
+	{ "xiyaowong/nvim-transparent" }, -- toggle transparency
+	-- themes / color schemes
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	-- {
+	-- 	"craftzdog/solarized-osaka.nvim",
+	-- 	lazy = true,
+	-- 	priority = 1000,
+	-- 	opts = function()
+	-- 		return {
+	-- 			transparent = true,
+	-- 		}
+	-- 	end,
+	-- },
+	-- {
+	-- 	"bluz71/vim-nightfly-colors",
+	-- 	priority = 1000,
+	-- },
 }
 
 require("lazy").setup(plugins)
