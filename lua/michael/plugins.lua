@@ -65,13 +65,7 @@ local plugins = {
 	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
-		-- run = ":TSUpdate",
-		config = function()
-			local utils = require("lvim.utils")
-			local path = utils.join_paths(get_runtime_dir(), "site", "pack", "lazy", "opt", "nvim-treesitter")
-			vim.opt.rtp:prepend(path) -- treesitter needs to be before nvim's runtime in rtp
-			require("lvim.core.treesitter").setup()
-		end,
+		build = ":TSUpdate",
 		cmd = {
 			"TSInstall",
 			"TSUninstall",
@@ -194,6 +188,14 @@ local plugins = {
 			"rcarriga/nvim-notify",
 		},
 	},
+	-- harpoon
+	{
+		"ThePrimeagen/harpoon",
+		event = "BufRead",
+		config = function()
+			require("harpoon").setup()
+		end,
+	},
 	-- toggle transparency
 	{ "xiyaowong/nvim-transparent" }, -- toggle transparency
 	-- themes / color schemes
@@ -217,6 +219,7 @@ local plugins = {
 	-- 	"bluz71/vim-nightfly-colors",
 	-- 	priority = 1000,
 	-- },
+{"HiPhish/nvim-ts-rainbow2"}
 }
 
 require("lazy").setup(plugins)
