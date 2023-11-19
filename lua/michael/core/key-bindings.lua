@@ -326,6 +326,20 @@ local keybindings = {
 		command = "<cmd>MarkdownPreviewToggle<CR>",
 		description = "Markdown preview",
 	},
+	-- toggle term
+	{
+		mode = "t",
+		key = "<Esc>",
+		command = "<C-\\><C-n>",
+		description = "Exit terminal mode",
+	},
+	-- stop running process in toggle term
+	{
+		mode = "t",
+		key = "<C-c",
+		command = "<C-\\><C-n>:stop<CR>",
+		description = "Stop running process",
+	},
 }
 
 for _, bind in ipairs(keybindings) do
