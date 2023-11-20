@@ -220,6 +220,12 @@ local keybindings = {
 	},
 	{
 		mode = "n",
+		key = "<leader>lR",
+		command = "<cmd>LspRestart<CR>",
+		description = "Restart LSP",
+	},
+	{
+		mode = "n",
 		key = "<leader>la",
 		command = "<cmd>lua vim.lsp.buf.code_action()<CR>",
 		description = "Code action",

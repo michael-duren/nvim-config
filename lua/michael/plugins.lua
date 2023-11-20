@@ -205,6 +205,7 @@ local plugins = {
 		priority = 1000,
 		opts = {},
 	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	-- {
 	-- 	"craftzdog/solarized-osaka.nvim",
 	-- 	lazy = true,
@@ -219,7 +220,7 @@ local plugins = {
 	-- 	"bluz71/vim-nightfly-colors",
 	-- 	priority = 1000,
 	-- },
-{"HiPhish/nvim-ts-rainbow2"}
+	{ "HiPhish/nvim-ts-rainbow2" },
 }
 
 require("lazy").setup(plugins)
