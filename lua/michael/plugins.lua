@@ -205,22 +205,10 @@ local plugins = {
 		priority = 1000,
 		opts = {},
 	},
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	-- {
-	-- 	"craftzdog/solarized-osaka.nvim",
-	-- 	lazy = true,
-	-- 	priority = 1000,
-	-- 	opts = function()
-	-- 		return {
-	-- 			transparent = true,
-	-- 		}
-	-- 	end,
-	-- },
-	-- {
-	-- 	"bluz71/vim-nightfly-colors",
-	-- 	priority = 1000,
-	-- },
 	{ "HiPhish/nvim-ts-rainbow2" },
+	-- nuget specific
+	-- cmp nuget
+	{ "PasiBergman/cmp-nuget" },
 }
 
 require("lazy").setup(plugins)

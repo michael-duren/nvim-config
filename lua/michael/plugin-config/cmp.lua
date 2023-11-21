@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local icons = require("michael.core.icons")
+require("cmp-nuget").setup({})
 
 cmp.setup({
 	snippet = {
@@ -13,12 +14,16 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	},
 	sources = cmp.config.sources({
+		{ name = "nuget", keyword_length = 0 },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 	}, {
 		{ name = "buffer" },
 	}),
 	formatting = {
+		source_name = {
+			nuget = "(NuGet)",
+		},
 		format = function(_, vim_item)
 			local icon = icons.kind[vim_item.kind]
 			if icon then
