@@ -369,14 +369,27 @@ local keybindings = {
 	{
 		mode = "n",
 		key = "<leader>gd",
-		command = "<cmd>lua require('gitsigns').diffthis()<CR>",
+		command = "<cmd>Gitsigns diffthis<CR>",
 		options = { silent = false, noremap = true, desc = "Diff this" },
 	},
 	{
 		mode = "n",
-		key = "<leader>gb",
-		command = "<cmd>lua require('gitsigns').blame_line()<CR>",
+		key = "<leader>gB",
+		command = "<cmd>Gitsigns blame_line<CR>",
 		description = "Blame line",
+	},
+	-- git telescope
+	{
+		mode = "n",
+		key = "<leader>gb",
+		command = "<cmd>Telescope git_branches<CR>",
+		description = "Git branches",
+	},
+	{
+		mode = "n",
+		key = "<leader>gc",
+		command = "<cmd>Telescope git_commits<CR>",
+		description = "Git commits",
 	},
 }
 
