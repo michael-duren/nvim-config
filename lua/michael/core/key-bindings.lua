@@ -365,6 +365,19 @@ local keybindings = {
 		command = "<cmd>Copilot status<CR>",
 		options = { silent = false, noremap = true, desc = "Copilot status" },
 	},
+	-- gitsigns
+	{
+		mode = "n",
+		key = "<leader>gd",
+		command = "<cmd>lua require('gitsigns').diffthis()<CR>",
+		options = { silent = false, noremap = true, desc = "Diff this" },
+	},
+	{
+		mode = "n",
+		key = "<leader>gb",
+		command = "<cmd>lua require('gitsigns').blame_line()<CR>",
+		description = "Blame line",
+	},
 }
 
 for _, bind in ipairs(keybindings) do
