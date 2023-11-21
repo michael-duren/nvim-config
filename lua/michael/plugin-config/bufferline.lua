@@ -8,7 +8,7 @@ require("bufferline").setup({
     right_mouse_command = "bdelete! %d",
     left_mouse_command = "buffer %d",
     middle_mouse_command = nil,
-    indicator = { icon = icons.ui.LineMiddle, style = "icon" },
+    indicator = { icon = "|", style = "icon" },
     buffer_close_icon = icons.ui.Close,
     modified_icon = icons.git.LineModified,
     close_icon = icons.ui.Close,
