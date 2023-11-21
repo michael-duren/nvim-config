@@ -346,6 +346,25 @@ local keybindings = {
 		command = "<C-\\><C-n>:stop<CR>",
 		description = "Stop running process",
 	},
+	-- copilot
+	{
+		mode = "n",
+		key = "<leader>Ce",
+		command = "<cmd>Copilot enable<CR>",
+		options = { silent = false, noremap = true, desc = "Enable copilot" },
+	},
+	{
+		mode = "n",
+		key = "<leader>Cd",
+		command = "<cmd>Copilot disable<CR>",
+		options = { silent = false, noremap = true, desc = "Disable copilot" },
+	},
+	{
+		mode = "n",
+		key = "<leader>Cs",
+		command = "<cmd>Copilot status<CR>",
+		options = { silent = false, noremap = true, desc = "Copilot status" },
+	},
 }
 
 for _, bind in ipairs(keybindings) do
