@@ -34,6 +34,7 @@ require("michael.plugin-config.friendly-snippets")
 require("michael.plugin-config.tailwind-color")
 require("michael.plugin-config.colorizer")
 require("michael.plugin-config.noice")
+require("michael.plugin-config.harpoon")
 
 -- colorscheme
 require("michael.core.colorscheme")

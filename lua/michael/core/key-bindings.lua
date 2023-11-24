@@ -391,6 +391,31 @@ local keybindings = {
 		command = "<cmd>Telescope git_commits<CR>",
 		description = "Git commits",
 	},
+	-- harpoon
+	{
+		mode = "n",
+		key = "<leader>hh",
+		command = "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
+		description = "Harpoon toggle quick menu",
+	},
+	{
+		mode = "n",
+		key = "<leader>ha",
+		command = "<cmd>lua require('harpoon.mark').add_file()<CR>",
+		description = "Harpoon add file",
+	},
+	{
+		mode = "n",
+		key = "<leader>hj",
+		command = "<cmd>lua require('harpoon.ui').nav_next()<CR>",
+		description = "Harpoon next",
+	},
+	{
+		mode = "n",
+		key = "<leader>hk",
+		command = "<cmd>lua require('harpoon.ui').nav_prev()<CR>",
+		description = "Harpoon previous",
+	},
 }
 
 for _, bind in ipairs(keybindings) do
