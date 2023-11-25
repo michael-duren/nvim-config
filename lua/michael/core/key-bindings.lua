@@ -447,6 +447,13 @@ local keybindings = {
 		command = "<cmd>lua require('harpoon.ui').nav_prev()<CR>",
 		description = "Harpoon previous",
 	},
+	-- noice
+	{
+		mode = "n",
+		key = "<leader>nd",
+		command = "<cmd>Noice dismiss<CR>",
+		description = "Noice dismiss",
+	},
 }
 
 for _, bind in ipairs(keybindings) do
