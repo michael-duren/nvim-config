@@ -454,6 +454,18 @@ local keybindings = {
 		command = "<cmd>Noice dismiss<CR>",
 		description = "Noice dismiss",
 	},
+	{
+		mode = "n",
+		key = "<leader>nl",
+		command = "<cmd>Noice log<CR>",
+		description = "Noice log",
+	},
+	{
+		mode = "n",
+		key = "<leader>nn",
+		command = "<cmd>Noice<CR>",
+		description = "Noice",
+	},
 }
 
 for _, bind in ipairs(keybindings) do
