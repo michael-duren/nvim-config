@@ -368,12 +368,6 @@ local keybindings = {
 	-- gitsigns
 	{
 		mode = "n",
-		key = "<leader>gd",
-		command = "<cmd>Gitsigns diffthis<CR>",
-		options = { silent = false, noremap = true, desc = "Diff this" },
-	},
-	{
-		mode = "n",
 		key = "<leader>gB",
 		command = "<cmd>Gitsigns blame_line<CR>",
 		description = "Blame line",
@@ -390,6 +384,43 @@ local keybindings = {
 		key = "<leader>gc",
 		command = "<cmd>Telescope git_commits<CR>",
 		description = "Git commits",
+	},
+	-- fugitive
+	{
+		mode = "n",
+		key = "<leader>gd",
+		command = "<cmd> Gvdiffsplit <CR>",
+		description = "View diff for file",
+	},
+	{
+		mode = "n",
+		key = "<leader>gs",
+		command = "<cmd> G<CR>",
+		description = "Git status",
+	},
+	{
+		mode = "n",
+		key = "<leader>gp",
+		command = "<cmd> Git push<CR>",
+		description = "Git push",
+	},
+	{
+		mode = "n",
+		key = "<leader>gP",
+		command = "<cmd> Git pull<CR>",
+		description = "Git pull",
+	},
+	{
+		mode = "n",
+		key = "<leader>gC",
+		command = "<cmd> Git commit<CR>",
+		description = "Git commit",
+	},
+	{
+		mode = "n",
+		key = "<leader>gl",
+		command = "<cmd> Git log<CR>",
+		description = "Git log",
 	},
 	-- harpoon
 	{
