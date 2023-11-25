@@ -1,47 +1,38 @@
 local lsp_zero = require("lsp-zero")
-
-lsp_zero.on_attach(function(_, bufnr)
-	-- see :help lsp-zero-keybindings
-	-- to learn the available actions
-	lsp_zero.default_keymaps({ buffer = bufnr })
-end)
-
----
--- Replace these language servers
--- with the ones you have installed in your system
----
--- local servers = {
---   'bashls',
---   'clangd',
---   'cmake',
---   'cssls',
---   'dockerls',
---   'gopls',
---   'html',
---   'jsonls',
---   'pyright',
---   'rust_analyzer',
---   'sumneko_lua',
---   'tsserver',
---   'vimls',
---   'yamlls',
--- }
+local servers = {
+	"clangd",
+	"cssls",
+	"cssmodules_ls",
+	"emmet_ls",
+	"eslint",
+	"html",
+	"jsonls",
+	"lemminx",
+	"lua_ls",
+	"omnisharp",
+	"rust_analyzer",
+	"tsserver",
+	"vimls",
+}
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "tsserver" },
+	ensure_installed = servers,
 	handlers = {
 		lsp_zero.default_setup,
 	},
 })
 
 local lspconfig = require("lspconfig")
+local lsp_windows = require("lspconfig.ui.windows").default_options
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Prevent multiple instance of lsp servers
 -- if file is sourced again
 if vim.g.lsp_setup_ready == nil then
 	vim.g.lsp_setup_ready = true
+
+	lsp_windows.border = "rounded"
 
 	-- See :help lspconfig-setup
 	lspconfig.html.setup({ capabilities = lsp_capabilities })
@@ -78,4 +69,17 @@ if vim.g.lsp_setup_ready == nil then
 			},
 		},
 	})
+
+	local lsp_window_settings = {
+		border = "rounded",
+	}
+
+	for _, server in ipairs(servers) do
+		lspconfig[server].setup({
+			handlers = {
+				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, lsp_window_settings),
+				["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, lsp_window_settings),
+			},
+		})
+	end
 end

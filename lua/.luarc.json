@@ -4,5 +4,8 @@
         "reload",
         "lzp_zero",
         "asdf"
+    ],
+    "diagnostics.disable": [
+        "inject-field"
     ]
 }
