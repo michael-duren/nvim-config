@@ -79,14 +79,7 @@ return {
 		end,
 	},
 	-- telescope
-	{
-		"nvim-telescope/telescope.nvim",
-		requires = {
-			{ "nvim-lua/popup.nvim" },
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope-fzy-native.nvim" },
-		},
-	},
+	{ "nvim-telescope/telescope.nvim" },
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
 	-- toggle term
@@ -115,7 +108,6 @@ return {
 	-- lua line
 	{
 		"nvim-lualine/lualine.nvim",
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 		lazy = false,
 	},
 	{ "arkav/lualine-lsp-progress" },
