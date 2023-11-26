@@ -466,6 +466,42 @@ local keybindings = {
 		command = "<cmd>Noice<CR>",
 		description = "Noice",
 	},
+	-- dap
+	{
+		mode = "n",
+		key = "<leader>dc",
+		command = "<cmd>lua require('dap').continue()<CR>",
+		description = "Dap continue or start",
+	},
+	{
+		mode = "n",
+		key = "<leader>do",
+		command = "<cmd>lua require('dap').step_over()<CR>",
+		description = "Dap step over",
+	},
+	{
+		mode = "n",
+		key = "<leader>di",
+		command = "<cmd>lua require('dap').step_into()<CR>",
+		description = "Dap step into",
+	},
+	{
+		mode = "n",
+		key = "<leader>dr",
+		command = "<cmd>lua require('dap').repl.open()<CR>",
+		description = "Dap open repl",
+	},
+	{
+		mode = "n",
+		key = "<leader>dt",
+		command = "<cmd>lua require('dap').toggle_breakpoint()<CR>",
+	},
+	{
+		mode = "n",
+		key = "<leader>dl",
+		command = "<cmd>lua require('dap').run_last()<CR>",
+		description = "Dap run last",
+	},
 }
 
 for _, bind in ipairs(keybindings) do
