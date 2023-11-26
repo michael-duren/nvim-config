@@ -46,6 +46,7 @@ if vim.g.lsp_setup_ready == nil then
 			Lua = {
 				diagnostics = {
 					globals = { "vim" },
+					disable = { "missing-fields" },
 				},
 				runtime = {
 					version = "LuaJIT",
