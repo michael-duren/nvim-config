@@ -14,7 +14,18 @@ vim.fn.sign_define(
 
 dap.set_log_level("info")
 
+local installed_path = dotnet_utils.get_dotnet_core_debugger()
+if installed_path == nil then
+	print("No dotnet core debugger found")
+	installed_path = "netcoredbg"
+end
+
 dap.adapters.coreclr = {
+	type = "executable",
+	command = dotnet_utils.get_dotnet_core_debugger(),
+	args = { "--interpreter=vscode" },
+}
+dap.adapters.netcoredbg = {
 	type = "executable",
 	command = dotnet_utils.get_dotnet_core_debugger(),
 	args = { "--interpreter=vscode" },

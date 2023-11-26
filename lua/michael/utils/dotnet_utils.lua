@@ -57,33 +57,49 @@ function M.get_dotnet_project_runtime(csproj_path)
 end
 
 function M.get_dotnet_core_debugger()
-	local main
-	local secondary
-	local directory_name = "netcoredbg"
-	local file_name = "/netcoredbg"
-	local home = vim.fn.getenv("HOME")
-
-	if is_windows() then
-		main = "C:\\Program Files\\" .. directory_name
-		secondary = home .. "\\AppData\\Local\\" .. directory_name
-	else
-		main = home .. "/.local/bin/" .. directory_name
-		secondary = "/usr/local/bin/" .. directory_name
+	local mason_registry = require("mason-registry")
+	local mason = require("mason")
+	if not mason_registry.is_installed("netcoredbg") then
+		print("netcoredbg is not installed")
+		return nil, "netcoredbg is not installed"
 	end
-
-	local found_main = vim.fn.finddir(main, "")
-	if found_main ~= "" then
-		return main .. file_name
+	local debugger = mason_registry.get_package("netcoredbg")
+	print("Debugger " .. debugger:get_install_path() .. "/netcoredbg")
+	if debugger == nil then
+		print("Failed to retrieve netcoredbg from Mason registry.")
+		return nil, "Failed to retrieve netcoredbg from Mason registry."
 	end
-
-	local found_secondary = vim.fn.finddir(secondary, "")
-	if found_secondary ~= "" then
-		return secondary .. file_name
+	print("Debugger " .. debugger:get_install_path() .. "/netcoredbg")
+	if debugger:is_installed() then
+		return debugger:get_install_path() .. "/netcoredbg"
 	end
-
-	print("Unable to find netcoredbg")
-	return nil, "Unable to find netcoredbg"
 end
+
+-- local secondary
+-- local directory_name = "netcoredbg"
+-- local file_name = "/netcoredbg"
+-- local home = vim.fn.getenv("HOME")
+--
+-- if is_windows() then
+-- 	main = "C:\\Program Files\\" .. directory_name
+-- 	secondary = home .. "\\AppData\\Local\\" .. directory_name
+-- else
+-- 	main = home .. "/.local/bin/" .. directory_name
+-- 	secondary = "/usr/local/bin/" .. directory_name
+-- end
+--
+-- local found_main = vim.fn.finddir(main, "")
+-- if found_main ~= "" then
+-- 	return main .. file_name
+-- end
+--
+-- local found_secondary = vim.fn.finddir(secondary, "")
+-- if found_secondary ~= "" then
+-- 	return secondary .. file_name
+-- end
+--
+-- print("Unable to find netcoredbg")
+-- return nil, "Unable to find netcoredbg"
 
 function M.get_debug_extension()
 	if is_windows() then

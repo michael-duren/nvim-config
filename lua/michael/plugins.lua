@@ -212,7 +212,26 @@ local plugins = {
 	-- nuget specific
 	-- cmp nuget
 	{ "PasiBergman/cmp-nuget" },
+	-- {
+	-- 	"nvim-neotest/neotest",
+	-- 	dependencies = {
+	-- 		"Issafalcon/neotest-dotnet",
+	-- 	},
+	-- 	opts = function(_, opts)
+	-- 		vim.list_extend(opts.adapters, {
+	-- 			require("neotest-dotnet"),
+	-- 		})
+	-- 	end,
+	-- },
 }
 
 require("lazy").setup(plugins)
-require("mason").setup()
+require("mason").setup({
+	-- your configuration comes here
+	-- or leave it empty to use the default settings
+	-- refer to the configuration section below
+	--ensure installed
+	ensure_installed = {
+		"netcoredbg",
+	},
+})
