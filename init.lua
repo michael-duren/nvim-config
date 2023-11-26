@@ -36,5 +36,7 @@ require("michael.plugin-config.colorizer")
 require("michael.plugin-config.noice")
 require("michael.plugin-config.harpoon")
 
+require("michael.lsp.dap")
+
 -- colorscheme
 require("michael.core.colorscheme")

@@ -502,6 +502,12 @@ local keybindings = {
 		command = "<cmd>lua require('dap').run_last()<CR>",
 		description = "Dap run last",
 	},
+	{
+		mode = "n",
+		key = "<leader>du",
+		command = "<cmd>lua require('dapui').toggle()<CR>",
+		description = "Dapui toggle",
+	},
 }
 
 for _, bind in ipairs(keybindings) do

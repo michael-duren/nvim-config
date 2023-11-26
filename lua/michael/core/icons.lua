@@ -156,6 +156,16 @@ local icons = {
 		HalfCircleLeftThin = "",
 		HalfCircleRightThin = "",
 	},
+	dap = {
+		Play = "",
+		Pause = "",
+		Stop = "",
+		StepInto = "",
+		StepOver = "",
+		StepOut = "",
+		StepBack = "",
+		RunLast = "",
+	},
 }
 
 return icons
