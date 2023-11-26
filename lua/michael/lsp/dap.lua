@@ -1,6 +1,6 @@
 local dap, dapui = require("dap"), require("dapui")
 local m_icons = require("michael.core.icons")
-local get_dotnet_assembly_name = require("michael.utils.get_dotnet_assembly_name")
+local dotnet_utils = require("michael.utils.dotnet_utils")
 
 dap.adapters.coreclr = {
 	type = "executable",
@@ -14,12 +14,19 @@ dap.configurations.cs = {
 		name = "launch - netcoredbg",
 		request = "launch",
 		program = function()
-			local proj_name = get_dotnet_assembly_name()
+			local proj_name = dotnet_utils.get_dotnet_assembly_name()
 			if proj_name == nil then
 				print("No .csproj file found")
 				return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/net8.0/", "file")
 			end
-			return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/net8.0/" .. proj_name, "file")
+			local runtime = dotnet_utils.get_dotnet_project_runtime(vim.fn.getcwd() .. "/" .. proj_name .. ".csproj")
+
+			if runtime == nil then
+				print("Unable to find TargetFramework in csproj file")
+				return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/net8.0/" .. proj_name, "file")
+			end
+
+			return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/" .. runtime .. "/" .. proj_name, "file")
 		end,
 	},
 }

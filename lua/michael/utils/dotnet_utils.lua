@@ -1,6 +1,7 @@
 local is_windows = require("michael.utils.is_windows")
+local M = {}
 
-local function get_dotnet_assembly_name(csproj_path)
+function M.get_dotnet_assembly_name(csproj_path)
 	local default_path = vim.fn.getcwd() .. "/"
 	local path = csproj_path or default_path
 	local cmd
@@ -31,19 +32,28 @@ local function get_dotnet_assembly_name(csproj_path)
 	return name_with_extension
 end
 
-local function get_dotnet_project_runtime()
-	local cmd = "dotnet --list-runtimes"
-	local f = io.popen(cmd)
-	local runtimes = {}
-	for line in f:lines() do
-		local runtime = line:match("(.+) %(")
-		if runtime then
-			table.insert(runtimes, runtime)
+function M.get_dotnet_project_runtime(csproj_path)
+	local file = io.open(csproj_path, "r")
+	if not file then
+		return nil, "Unable to open csproj file"
+	end
+
+	local target_framework = nil
+
+	for line in file:lines() do
+		if line:find("<TargetFramework>") then
+			target_framework = line:match("<TargetFramework>(.-)</TargetFramework>")
+			break
 		end
 	end
-	f:close()
 
-	return runtimes
+	file:close()
+
+	if not target_framework then
+		return nil, "Unable to find TargetFramework in csproj file"
+	end
+
+	return target_framework
 end
 
-return get_dotnet_assembly_name
+return M
