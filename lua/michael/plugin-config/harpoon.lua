@@ -8,11 +8,11 @@ harpoon.setup({
 })
 
 -- Binding for going to specific marks
-for i = 1, 10, 1 do
-	vim.keymap.set(
-		"n",
-		"<leader>" .. i,
-		"<cmd>lua require('harpoon.ui').nav_file(" .. i .. ")<CR>",
-		{ noremap = true, silent = true }
-	)
-end
+-- for i = 1, 10, 1 do
+-- 	vim.keymap.set(
+-- 		"n",
+-- 		"<leader>" .. i,
+-- 		"<cmd>lua require('harpoon.ui').nav_file(" .. i .. ")<CR>",
+-- 		{ noremap = true, silent = true }
+-- 	)
+-- end
