@@ -56,4 +56,41 @@ function M.get_dotnet_project_runtime(csproj_path)
 	return target_framework
 end
 
+function M.get_dotnet_core_debugger()
+	local main
+	local secondary
+	local directory_name = "netcoredbg"
+	local file_name = "/netcoredbg"
+	local home = vim.fn.getenv("HOME")
+
+	if is_windows() then
+		main = "C:\\Program Files\\" .. directory_name
+		secondary = home .. "\\AppData\\Local\\" .. directory_name
+	else
+		main = home .. "/.local/bin/" .. directory_name
+		secondary = "/usr/local/bin/" .. directory_name
+	end
+
+	local found_main = vim.fn.finddir(main, "")
+	if found_main ~= "" then
+		return main .. file_name
+	end
+
+	local found_secondary = vim.fn.finddir(secondary, "")
+	if found_secondary ~= "" then
+		return secondary .. file_name
+	end
+
+	print("Unable to find netcoredbg")
+	return nil, "Unable to find netcoredbg"
+end
+
+function M.get_debug_extension()
+	if is_windows() then
+		return ".exe"
+	else
+		return ".dll"
+	end
+end
+
 return M

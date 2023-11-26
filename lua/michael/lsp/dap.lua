@@ -2,9 +2,21 @@ local dap, dapui = require("dap"), require("dapui")
 local m_icons = require("michael.core.icons")
 local dotnet_utils = require("michael.utils.dotnet_utils")
 
+vim.fn.sign_define(
+	"DapBreakpoint",
+	{ text = m_icons.ui.Bug, texthl = "DiagnosticSignError", linehl = "", numhl = "DiagnosticSignError" }
+)
+vim.fn.sign_define("DapStopped", { text = m_icons.ui.Bug, texthl = "", linehl = "DiagnosticSignError", numhl = "" })
+vim.fn.sign_define(
+	"DapStopped",
+	{ text = m_icons.ui.BoldArrowRight, texthl = "", linehl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn" }
+)
+
+dap.set_log_level("info")
+
 dap.adapters.coreclr = {
 	type = "executable",
-	command = "/usr/local/bin/netcoredbg/netcoredbg",
+	command = dotnet_utils.get_dotnet_core_debugger(),
 	args = { "--interpreter=vscode" },
 }
 
@@ -26,7 +38,11 @@ dap.configurations.cs = {
 				return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/net8.0/" .. proj_name, "file")
 			end
 
-			return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/" .. runtime .. "/" .. proj_name, "file")
+			return vim.fn.input(
+				"Path to dll",
+				vim.fn.getcwd() .. "/bin/Debug/" .. runtime .. "/" .. proj_name .. dotnet_utils.get_debug_extension(),
+				"file"
+			)
 		end,
 	},
 }
@@ -44,24 +60,28 @@ dapui.setup({
 		remove = "d",
 		edit = "e",
 		repl = "r",
+		toggle = "t",
 	},
+	element_mappings = {},
 	expand_lines = true,
 	layouts = {
-		elements = {
-			{ id = "scopes", size = 0.25 },
-			{ "breakpoints", size = 0.25 },
-			{ id = "stacks", size = 0.25 },
-			{ id = "watches", size = 0.25 },
-		},
-		size = 40,
-		position = "left",
 		{
 			elements = {
-				{ id = "repl", size = 0.5 },
-				{ id = "console", size = 0.5 },
+				{ id = "scopes", size = 0.33 },
+				{ id = "breakpoints", size = 0.17 },
+				{ id = "stacks", size = 0.25 },
+				{ id = "watches", size = 0.25 },
 			},
-			size = 0.25, -- 25% of total lines
-			position = "bottom", -- bottom panel
+			size = 0.33,
+			position = "right",
+		},
+		{
+			elements = {
+				{ id = "repl", size = 0.45 },
+				{ id = "console", size = 0.55 },
+			},
+			size = 0.27,
+			position = "bottom",
 		},
 	},
 	controls = {
@@ -79,21 +99,21 @@ dapui.setup({
 		},
 	},
 	floating = {
-		max_height = nil, -- These can be integers or a float between 0 and 1.
-		max_width = nil, -- Floats will be treated as percentage of your screen.
+		max_height = 0.9,
+		max_width = 0.5,
+		border = "rounded",
 		mappings = {
 			close = { "q", "<Esc>" },
 		},
-		border = "rounded",
 	},
 	windows = { indent = 1 },
 	render = {
-		max_type_length = nil, -- can be int or nil
+		max_type_length = nil,
 		max_value_lines = 100,
-		indent = 1,
+		indent = 2,
 	},
 })
-
+--
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open()
 end
