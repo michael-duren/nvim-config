@@ -1,6 +1,5 @@
 local dap, dapui = require("dap"), require("dapui")
 local m_icons = require("michael.core.icons")
-local dotnet_utils = require("michael.utils.dotnet_utils")
 
 vim.fn.sign_define(
 	"DapBreakpoint",
@@ -12,53 +11,24 @@ vim.fn.sign_define(
 	{ text = m_icons.ui.BoldArrowRight, texthl = "", linehl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn" }
 )
 
-dap.set_log_level("info")
+vim.fn.sign_define("DapBBreakpointRejected", {
+	text = m_icons.ui.Bug,
+	texthl = "DiagnosticSignError",
+	linehl = "",
+	numhl = "",
+})
 
-local installed_path = dotnet_utils.get_dotnet_core_debugger()
-if installed_path == nil then
-	print("No dotnet core debugger found")
-	installed_path = "netcoredbg"
-end
+vim.fn.sign_define("DapStopped", {
+	text = m_icons.ui.BoldArrowRight,
+	texthl = "DiagnosticSignWarn",
+	linehl = "Visual",
+	numhl = "DiagnosticSignWarn",
+})
 
-dap.adapters.coreclr = {
-	type = "executable",
-	command = dotnet_utils.get_dotnet_core_debugger(),
-	args = { "--interpreter=vscode" },
-}
-dap.adapters.netcoredbg = {
-	type = "executable",
-	command = dotnet_utils.get_dotnet_core_debugger(),
-	args = { "--interpreter=vscode" },
-}
-
-dap.configurations.cs = {
-	{
-		type = "coreclr",
-		name = "launch - netcoredbg",
-		request = "launch",
-		program = function()
-			local proj_name = dotnet_utils.get_dotnet_assembly_name()
-			if proj_name == nil then
-				print("No .csproj file found")
-				return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/net8.0/", "file")
-			end
-			local runtime = dotnet_utils.get_dotnet_project_runtime(vim.fn.getcwd() .. "/" .. proj_name .. ".csproj")
-
-			if runtime == nil then
-				print("Unable to find TargetFramework in csproj file")
-				return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/net8.0/" .. proj_name, "file")
-			end
-
-			return vim.fn.input(
-				"Path to dll",
-				vim.fn.getcwd() .. "/bin/Debug/" .. runtime .. "/" .. proj_name .. dotnet_utils.get_debug_extension(),
-				"file"
-			)
-		end,
-	},
-}
+dap.set_log_level("INFO")
 
 dapui.setup({
+	force_buffers = true,
 	icons = {
 		expanded = m_icons.ui.TriangleShortArrowDown,
 		collapsed = m_icons.ui.TriangleShortArrowRight,

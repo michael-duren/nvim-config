@@ -2,12 +2,36 @@ local icons = require("michael.core.icons")
 
 require("gitsigns").setup({
 	signs = {
-		add = { text = icons.git.LineAdded },
-		change = { text = icons.git.LineModified },
-		delete = { text = icons.git.FileDeleted },
-		topdelete = { text = icons.git.FileDeleted },
-		changedelete = { text = icons.git.LineModified },
-		untracked = { text = icons.git.FileUnmerged },
+		add = {
+			hl = "GitSignsAdd",
+			text = icons.ui.BoldLineLeft,
+			numhl = "GitSignsAddNr",
+			linehl = "GitSignsAddLn",
+		},
+		change = {
+			hl = "GitSignsChange",
+			text = icons.ui.BoldLineLeft,
+			numhl = "GitSignsChangeNr",
+			linehl = "GitSignsChangeLn",
+		},
+		delete = {
+			hl = "GitSignsDelete",
+			text = icons.ui.Triangle,
+			numhl = "GitSignsDeleteNr",
+			linehl = "GitSignsDeleteLn",
+		},
+		topdelete = {
+			hl = "GitSignsDelete",
+			text = icons.ui.Triangle,
+			numhl = "GitSignsDeleteNr",
+			linehl = "GitSignsDeleteLn",
+		},
+		changedelete = {
+			hl = "GitSignsChange",
+			text = icons.ui.BoldLineLeft,
+			numhl = "GitSignsChangeNr",
+			linehl = "GitSignsChangeLn",
+		},
 	},
 	signcolumn = true,
 	numhl = false, -- Toggle with `:Gitsigns toggle_numhl`

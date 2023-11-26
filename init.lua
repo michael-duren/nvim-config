@@ -13,6 +13,10 @@ require("michael.lsp")
 require("michael.lsp.rust")
 require("michael.lsp.csharp")
 
+-- dap
+require("michael.dap")
+require("michael.dap.csharp")
+
 -- plugin configs
 require("michael.plugins.cmp")
 require("michael.plugins.alpha")
@@ -34,8 +38,6 @@ require("michael.plugins.tailwind-color")
 require("michael.plugins.colorizer")
 require("michael.plugins.noice")
 require("michael.plugins.harpoon")
-
-require("michael.lsp.dap")
 
 -- colorscheme
 require("michael.core.colorscheme")
