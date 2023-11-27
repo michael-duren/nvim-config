@@ -1,4 +1,4 @@
-local lsp_zero = require("lsp-zero")
+-- local lsp_zero = require("lsp-zero")
 local servers = {
 	"clangd",
 	"cssls",
@@ -18,9 +18,9 @@ local servers = {
 require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
-	handlers = {
-		lsp_zero.default_setup,
-	},
+	-- handlers = {
+	-- 	lsp_zero.default_setup,
+	-- },
 })
 
 local lspconfig = require("lspconfig")
@@ -77,6 +77,7 @@ if vim.g.lsp_setup_ready == nil then
 
 	for _, server in ipairs(servers) do
 		lspconfig[server].setup({
+
 			handlers = {
 				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, lsp_window_settings),
 				["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, lsp_window_settings),
