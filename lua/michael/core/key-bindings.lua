@@ -508,6 +508,45 @@ local keybindings = {
 		command = "<cmd>lua require('dapui').toggle()<CR>",
 		description = "Dapui toggle",
 	},
+	-- trouble
+	{
+		mode = "n",
+		key = "<leader>xx",
+		command = "<cmd>TroubleToggle<cr>",
+		description = "Trouble toggle",
+	},
+	{
+		mode = "n",
+		key = "<leader>xd",
+		command = function()
+			require("trouble").toggle("document_diagnostics")
+		end,
+		description = "Document Diagnostic",
+	},
+	{
+		mode = "n",
+		key = "<leader>xw",
+		command = function()
+			require("trouble").toggle("workspace_diagnostics")
+		end,
+		description = "Workspace Diagnostic",
+	},
+	{
+		mode = "n",
+		key = "<leader>xl",
+		command = function()
+			require("trouble").toggle("loclist")
+		end,
+		description = "Location List",
+	},
+	{
+		mode = "n",
+		key = "<leader>xq",
+		command = function()
+			require("trouble").toggle("quickfix")
+		end,
+		description = "Quickfix",
+	},
 }
 
 for _, bind in ipairs(keybindings) do

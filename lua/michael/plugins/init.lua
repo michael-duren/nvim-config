@@ -191,6 +191,7 @@ return {
 	-- nuget specific
 	-- cmp nuget
 	{ "PasiBergman/cmp-nuget" },
+	{ "folke/trouble.nvim" },
 	-- {
 	-- 	"nvim-neotest/neotest",
 	-- 	dependencies = {
