@@ -1,5 +1,12 @@
 local dap = require("dap")
-local dotnet_utils = require("michael.utils.dotnet_utils")
+local is_windows = require("michael.utils.is_windows")
+local dotnet_utils
+if is_windows() then
+	dotnet_utils = require("michael.utils.dotnet_utils_win")
+else
+	dotnet_utils = require("michael.utils.dotnet_utils_unix")
+end
+
 local installed_path = dotnet_utils.get_dotnet_core_debugger()
 
 if installed_path == nil then

@@ -1,4 +1,3 @@
-local is_windows = require("michael.utils.is_windows")
 local M = {}
 
 function M.get_dotnet_assembly_name(csproj_path)
@@ -7,17 +6,13 @@ function M.get_dotnet_assembly_name(csproj_path)
 	local cmd
 
 	if not csproj_path then
-		if is_windows() then
-			cmd = 'dir "' .. default_path .. '" /B | findstr .csproj'
-		else
-			cmd = 'ls "' .. default_path .. '"*.csproj 2> /dev/null'
-		end
+		cmd = 'ls "' .. default_path .. '"*.csproj 2> /dev/null'
+	end
 
-		local f_path = io.popen(cmd)
-		if f_path ~= nil then
-			path = f_path:read("*l") -- read the first line
-			f_path:close()
-		end
+	local f_path = io.popen(cmd)
+	if f_path ~= nil then
+		path = f_path:read("*l") -- read the first line
+		f_path:close()
 	end
 
 	if not path then
@@ -56,41 +51,16 @@ function M.get_dotnet_project_runtime(csproj_path)
 	return target_framework
 end
 
-function M.get_dotnet_core_debugger_mason()
-	local mason_registry = require("mason-registry")
-	local mason = require("mason")
-	if not mason_registry.is_installed("netcoredbg") then
-		print("netcoredbg is not installed")
-		return nil, "netcoredbg is not installed"
-	end
-	local debugger = mason_registry.get_package("netcoredbg")
-	print("Debugger " .. debugger:get_install_path() .. "/netcoredbg")
-	if debugger == nil then
-		print("Failed to retrieve netcoredbg from Mason registry.")
-		return nil, "Failed to retrieve netcoredbg from Mason registry."
-	end
-	print("Debugger " .. debugger:get_install_path() .. "/netcoredbg")
-	if debugger:is_installed() then
-		return debugger:get_install_path() .. "/netcoredbg"
-	end
-end
-
 function M.get_dotnet_core_debugger()
-	local main
-	local secondary
 	local directory_name = "netcoredbg"
 	local file_name = "/netcoredbg"
 	local home = vim.fn.getenv("HOME")
 
-	if is_windows() then
-		main = "C:\\Program Files\\" .. directory_name
-		secondary = home .. "\\AppData\\Local\\" .. directory_name
-	else
-		main = home .. "/.local/bin/" .. directory_name
-		secondary = "/usr/local/bin/" .. directory_name
-	end
+	local main = home .. "/.local/bin/" .. directory_name
+	local secondary = "/usr/local/bin/" .. directory_name
 
 	local found_main = vim.fn.finddir(main, "")
+
 	if found_main ~= "" then
 		return main .. file_name
 	end
@@ -105,11 +75,7 @@ function M.get_dotnet_core_debugger()
 end
 
 function M.get_debug_extension()
-	if is_windows() then
-		return ".exe"
-	else
-		return ".dll"
-	end
+	return ".dll"
 end
 
 return M

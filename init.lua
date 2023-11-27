@@ -15,7 +15,7 @@ require("michael.lsp.csharp")
 
 -- dap
 require("michael.dap")
--- require("michael.dap.csharp")
+require("michael.dap.csharp")
 
 -- plugin configs
 require("michael.plugins.cmp")
@@ -41,3 +41,13 @@ require("michael.plugins.harpoon")
 
 -- colorscheme
 require("michael.core.colorscheme")
+local is_windows = require("michael.utils.is_windows")
+local utils
+
+if is_windows() then
+	utils = require("michael.utils.dotnet_utils_win")
+else
+	utils = require("michael.utils.dotnet_utils")
+end
+
+print("debugger result", utils.get_dotnet_core_debugger())
