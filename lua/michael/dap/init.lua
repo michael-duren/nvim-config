@@ -11,7 +11,7 @@ vim.fn.sign_define(
 	{ text = m_icons.ui.BoldArrowRight, texthl = "", linehl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn" }
 )
 
-vim.fn.sign_define("DapBBreakpointRejected", {
+vim.fn.sign_define("DapBreakpointRejected", {
 	text = m_icons.ui.Bug,
 	texthl = "DiagnosticSignError",
 	linehl = "",
