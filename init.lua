@@ -15,7 +15,7 @@ require("michael.lsp.csharp")
 
 -- dap
 require("michael.dap")
-require("michael.dap.csharp")
+-- require("michael.dap.csharp")
 
 -- plugin configs
 require("michael.plugins.cmp")
