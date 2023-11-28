@@ -1,4 +1,5 @@
 local buff_kill = require("michael.utils.buff_kill")
+
 local keybindings = {
 	-- general
 	{ mode = "n", key = "<C-s>", command = ":w<CR>", description = "Save current buffer" },
@@ -24,7 +25,7 @@ local keybindings = {
 	-- Toggle transparency
 	{
 		mode = "n",
-		key = "Tt",
+		key = "<leader>T",
 		command = ":TransparentToggle<CR>",
 		description = "Toggle transparency",
 	},
@@ -268,7 +269,7 @@ local keybindings = {
 	},
 	{
 		mode = "n",
-		key = "ls",
+		key = "<leader>ls",
 		command = "<cmd>Telescope lsp_document_symbols<cr>",
 		description = "Document Symbols",
 	},

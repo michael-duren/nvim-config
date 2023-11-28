@@ -14,6 +14,12 @@ local function show_active_lsp_clients()
 	return "[" .. table.concat(client_names, ", ") .. "]"
 end
 
+local function trim_text(text, max_length)
+	if text:len() > max_length then
+		return text:sub(1, max_length - 3) .. "..."
+	end
+end
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
@@ -38,7 +44,26 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_b = {
+			{
+				"branch",
+				fmt = function(str)
+					return trim_text(str, 15)
+				end,
+			},
+			{
+				"diff",
+				format = function(str)
+					return trim_text(str, 15)
+				end,
+			},
+			{
+				"diagnostics",
+				format = function(str)
+					return trim_text(str, 15)
+				end,
+			},
+		},
 		lualine_c = { "filename" },
 		lualine_x = { { show_active_lsp_clients, icons_enabled = true, icon = icons.ui.Stacks, padding = 2 } },
 		lualine_y = { "encoding", "fileformat", "filetype" },
