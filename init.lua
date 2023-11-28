@@ -39,6 +39,5 @@ require("michael.plugins.noice")
 require("michael.plugins.harpoon")
 require("michael.plugins.trouble")
 
-
 -- colorscheme
 require("michael.core.colorscheme")

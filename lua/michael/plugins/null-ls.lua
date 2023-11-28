@@ -25,8 +25,8 @@ local function check_prettier_config(root)
     "prettierrc.yaml",
   }
 
-  for _, config_files in ipairs(config_files) do
-    local config_path = lsp_utils.path.join(root, config_files)
+  for _, config_file in ipairs(config_files) do
+    local config_path = lsp_utils.path.join(root, config_file)
     if file_exists(config_path) then
       return true
     end
