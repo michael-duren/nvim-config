@@ -13,6 +13,7 @@ local servers = {
 	"rust_analyzer",
 	"tsserver",
 	"vimls",
+	"html",
 }
 require("mason").setup()
 require("mason-lspconfig").setup({
