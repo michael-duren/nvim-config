@@ -74,7 +74,7 @@ if vim.g.lsp_setup_ready == nil then
 	lsp_windows.border = "rounded"
 
 	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.html,*.json,*.lua",
+		pattern = "*",
 		callback = require("michael.utils.format_on_save").format_on_save,
 	})
 
