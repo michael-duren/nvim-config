@@ -31,7 +31,7 @@ local keybindings = {
 	-- Hide search highlight
 	{
 		mode = "n",
-		key = "<leader>h",
+		key = "<leader>H",
 		command = ":noh<CR>",
 		description = "Hide search highlight",
 	},

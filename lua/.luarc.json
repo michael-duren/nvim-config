@@ -1,9 +1,7 @@
 {
     "diagnostics.globals": [
         "vim",
-        "reload",
-        "lzp_zero",
-        "asdf"
+        "reload"
     ],
     "diagnostics.disable": [
         "inject-field"

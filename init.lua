@@ -30,7 +30,6 @@ require("michael.plugins.gitsigns")
 require("michael.plugins.comment")
 require("michael.plugins.lualine")
 require("michael.plugins.bufferline")
-require("michael.plugins.lsp-zero")
 require("michael.plugins.nvimtree")
 require("michael.plugins.whichkey")
 require("michael.plugins.friendly-snippets")
@@ -40,7 +39,6 @@ require("michael.plugins.noice")
 require("michael.plugins.harpoon")
 require("michael.plugins.trouble")
 
-require("michael.lsp.diagnostics")
 
 -- colorscheme
 require("michael.core.colorscheme")
