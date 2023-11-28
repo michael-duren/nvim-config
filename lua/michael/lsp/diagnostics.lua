@@ -3,8 +3,8 @@ local m_icons = require("michael.core.icons")
 vim.diagnostic.config({
 	underline = true,
 	virtual_text = {
-		spacing = 4,
-		prefix = "",
+		spacing = 2,
+		prefix = m_icons.ui.Circle,
 	},
 	signs = true,
 	update_in_insert = false,
