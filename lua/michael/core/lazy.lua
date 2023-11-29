@@ -1,5 +1,3 @@
-local plugins = require("michael.plugins")
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -13,7 +11,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(plugins, {
+require("lazy").setup({
+  spec = {
+    { import = "michael.base" },
+  },
+  defaults = { lazy = true, version = nil },
+  install = { missing = true, colorscheme = { "tokyonight", "catppuccin" } },
+  dev = { patterns = jit.os:find "Windows" and {} or { "alpha2phi" } },
   checker = { enabled = true },
   performance = {
     cache = {
@@ -32,5 +36,3 @@ require("lazy").setup(plugins, {
     },
   },
 })
-
-require("mason").setup()

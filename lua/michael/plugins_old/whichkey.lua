@@ -19,6 +19,7 @@ local groups = {
 	{ key = "m", name = "+Markdown" },
 	{ key = "n", name = "+Notifications" },
 	{ key = "x", name = "+Diagnostics" },
+	{ key = "t", name = "+Test" },
 }
 
 for _, group in ipairs(groups) do
