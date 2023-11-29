@@ -28,4 +28,17 @@ return {
   },
   -- themes / color schemes
   { "HiPhish/nvim-ts-rainbow2" },
+  -- barbeque
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
+  },
 }
