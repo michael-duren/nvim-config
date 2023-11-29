@@ -1,8 +1,9 @@
 local lspconfig = require("lspconfig")
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 local cmp = require("cmp")
+local M = {}
 
-local function tailwindcss_config()
+M.tailwindcss_config = function()
 	local tw = require("lspconfig.server_configurations.tailwindcss")
 	local filetypes_excluded = { "markdown" }
 
@@ -28,3 +29,12 @@ local function tailwindcss_config()
 		},
 	})
 end
+
+-- Custom formatter for nvim-cmp
+M.custom_cmp_formatter = function(entry, item)
+	local format_kinds = cmp.config.formatting.format
+	format_kinds(entry, item)
+	return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+end
+
+return M

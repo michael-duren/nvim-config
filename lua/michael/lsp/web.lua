@@ -1,7 +1,9 @@
 local lspconfig = require("lspconfig")
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+local tailwind = require("michael.lsp.tailwind")
 
 if vim.g.lsp_setup_ready == nil then
+	tailwind.tailwindcss_config()
 	-- See :help lspconfig-setup
 	-- web stuff
 	lspconfig.html.setup({ capabilities = lsp_capabilities })

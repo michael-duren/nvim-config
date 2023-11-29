@@ -1,6 +1,7 @@
 local cmp = require("cmp")
 local icons = require("michael.core.icons")
 require("cmp-nuget").setup({})
+local tailwind = require("michael.lsp.tailwind")
 
 cmp.setup({
 	snippet = {
@@ -30,11 +31,16 @@ cmp.setup({
 		source_name = {
 			nuget = "(NuGet)",
 		},
-		format = function(_, vim_item)
+		format = function(entry, vim_item)
 			local icon = icons.kind[vim_item.kind]
 			if icon then
 				vim_item.kind = icon
 			end
+
+			if entry.source.name == "tailwindcss" then
+				return tailwind.custom_cmp_formatter(entry, vim_item)
+			end
+
 			return vim_item
 		end,
 	},
