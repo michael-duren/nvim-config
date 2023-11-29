@@ -68,7 +68,7 @@ local config = {
 
 vim.diagnostic.config(config.diagnostic)
 
--- configure lsp safely
+-- configure global lsp settings
 if vim.g.lsp_setup_ready == nil then
 	vim.g.lsp_setup_ready = true
 
@@ -77,43 +77,6 @@ if vim.g.lsp_setup_ready == nil then
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		pattern = "*",
 		callback = require("michael.utils.format_on_save").format_on_save,
-	})
-
-	-- See :help lspconfig-setup
-	lspconfig.html.setup({ capabilities = lsp_capabilities })
-	lspconfig.cssls.setup({ capabilities = lsp_capabilities })
-	lspconfig.eslint.setup({ capabilities = lsp_capabilities })
-	-- configure lua lsp
-	lspconfig.lua_ls.setup({
-		capabilities = lsp_capabilities,
-		cmd = { "lua-language-server" },
-		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { "vim" },
-					disable = { "missing-fields" },
-				},
-				runtime = {
-					version = "LuaJIT",
-					path = vim.split(package.path, ";"),
-				},
-				workspace = {
-					library = {
-						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-						[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-					},
-				},
-			},
-		},
-	})
-
-	lspconfig.tsserver.setup({
-		capabilities = lsp_capabilities,
-		settings = {
-			completions = {
-				completeFunctionCalls = true,
-			},
-		},
 	})
 
 	for _, server in ipairs(servers) do
@@ -125,3 +88,9 @@ if vim.g.lsp_setup_ready == nil then
 		})
 	end
 end
+
+require("michael.lsp.web")
+require("michael.lsp.lua")
+require("michael.lsp.rust")
+require("michael.lsp.csharp")
+require("michael.lsp.tailwind")

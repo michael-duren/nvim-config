@@ -198,7 +198,7 @@ return {
 	-- cmp nuget
 	{ "PasiBergman/cmp-nuget" },
 	{ "folke/trouble.nvim" },
-	{ "uga-rosa/ccc.nvim" },
+	{ "uga-rosa/ccc.nvim", opts = {} },
 	-- {
 	-- 	"nvim-neotest/neotest",
 	-- 	dependencies = {

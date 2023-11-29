@@ -10,8 +10,6 @@ require("michael.plugins.neodev")
 
 -- lsp
 require("michael.lsp")
-require("michael.lsp.rust")
-require("michael.lsp.csharp")
 
 -- dap
 require("michael.dap")
@@ -38,6 +36,7 @@ require("michael.plugins.colorizer")
 require("michael.plugins.noice")
 require("michael.plugins.harpoon")
 require("michael.plugins.trouble")
+require("michael.plugins.ccc")
 
 -- colorscheme
 require("michael.core.colorscheme")
