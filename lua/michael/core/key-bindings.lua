@@ -368,50 +368,7 @@ local keybindings = {
     command = "<cmd> Git log<CR>",
     description = "Git log",
   },
-  -- harpoon
-  {
-    mode = "n",
-    key = "<leader>hh",
-    command = "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
-    description = "Harpoon toggle quick menu",
-  },
-  {
-    mode = "n",
-    key = "<leader>ha",
-    command = "<cmd>lua require('harpoon.mark').add_file()<CR>",
-    description = "Harpoon add file",
-  },
-  {
-    mode = "n",
-    key = "<leader>hj",
-    command = "<cmd>lua require('harpoon.ui').nav_next()<CR>",
-    description = "Harpoon next",
-  },
-  {
-    mode = "n",
-    key = "<leader>hk",
-    command = "<cmd>lua require('harpoon.ui').nav_prev()<CR>",
-    description = "Harpoon previous",
-  },
   -- noice
-  {
-    mode = "n",
-    key = "<leader>nd",
-    command = "<cmd>Noice dismiss<CR>",
-    description = "Noice dismiss",
-  },
-  {
-    mode = "n",
-    key = "<leader>nl",
-    command = "<cmd>Noice log<CR>",
-    description = "Noice log",
-  },
-  {
-    mode = "n",
-    key = "<leader>nn",
-    command = "<cmd>Noice<CR>",
-    description = "Noice",
-  },
   -- dap
   {
     mode = "n",

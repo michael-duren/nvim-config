@@ -12,13 +12,6 @@ return {
   { "neovim/nvim-lspconfig" },
   -- zero - lsp
   { "neovim/nvim-lspconfig" },
-  -- null-ls
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    lazy = false,
-  },
-  -- toggle term
-  { "akinsho/toggleterm.nvim", version = "*", config = true },
   -- git stuff
   -- gitsigns
   { "lewis6991/gitsigns.nvim" },
@@ -92,7 +85,6 @@ return {
   -- nuget specific
   -- cmp nuget
   { "PasiBergman/cmp-nuget" },
-  { "folke/trouble.nvim" },
   -- CSS color stuff
   { "uga-rosa/ccc.nvim",         opts = {} },
   -- matching
