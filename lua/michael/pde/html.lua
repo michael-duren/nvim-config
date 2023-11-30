@@ -81,7 +81,7 @@ return {
 			{ "<leader>zCc", "<cmd>CccConvert<cr>", desc = "Convert" },
 			{ "<leader>zCh", "<cmd>CccHighlighterToggle<cr>", desc = "Toggle Highlighter" },
 		},
-		setup = function(_, opts)
+		config = function(_, opts)
 			require("ccc").setup(opts)
 		end,
 	},
