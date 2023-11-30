@@ -79,7 +79,7 @@ function M.setup(_, opts)
 			end
 		end
 		local ready, lspconfig = pcall(require, "lspconfig")
-		if ready then
+		if ready and lspconfig[server].setup then
 			lspconfig[server].setup(server_opts)
 		end
 	end

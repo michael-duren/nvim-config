@@ -1,0 +1,88 @@
+if not require("michael.core").pde.html then
+	return {}
+end
+
+return {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = function(_, opts)
+			vim.list_extend(opts.ensure_installed, { "html", "css" })
+		end,
+	},
+	{
+		"williamboman/mason.nvim",
+		opts = function(_, opts)
+			vim.list_extend(opts.ensure_installed, { "prettierd" })
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			-- make sure mason installs the server
+			servers = {
+				-- html
+				html = {
+					filetypes = {
+						"html",
+						"javascript",
+						"javascriptreact",
+						"javascript.jsx",
+						"typescript",
+						"typescriptreact",
+						"typescript.tsx",
+					},
+				},
+				-- Emmet
+				emmet_ls = {
+					init_options = {
+						html = {
+							options = {
+								-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+								["bem.enabled"] = true,
+								["jsx.enabled"] = true,
+							},
+						},
+					},
+				},
+				-- CSS
+				cssls = {},
+			},
+		},
+	},
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		opts = function(_, opts)
+			local nls = require("null-ls")
+			table.insert(opts.sources, nls.builtins.formatting.prettierd)
+		end,
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+			defaults = {
+				["<leader>z"] = { name = "+System" },
+				["<leader>zC"] = { name = "+Color" },
+			},
+		},
+	},
+	{
+		"uga-rosa/ccc.nvim",
+		event = "BufEnter",
+		opts = {
+			highlighter = {
+				auto_enable = true,
+				disable = { "markdown" },
+			},
+		},
+		cmd = { "CccPick", "CccConvert", "CccHighlighterEnable", "CccHighlighterDisable", "CccHighlighterToggle" },
+		keys = {
+			{ "<leader>zCp", "<cmd>CccPick<cr>", desc = "Pick" },
+			{ "<leader>zCc", "<cmd>CccConvert<cr>", desc = "Convert" },
+			{ "<leader>zCh", "<cmd>CccHighlighterToggle<cr>", desc = "Toggle Highlighter" },
+		},
+		setup = function(_, opts)
+			require("ccc").setup(opts)
+		end,
+	},
+}
