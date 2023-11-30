@@ -2,7 +2,7 @@ return {
 	pde = {
 		-- ai = false,
 		angular = true,
-		cpp = true,
+		cpp = false,
 		csharp = true,
 		docker = true,
 		elixir = true,
