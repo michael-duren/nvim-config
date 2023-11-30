@@ -2,6 +2,47 @@ return {
   {
     "folke/trouble.nvim",
     lazy = false,
+    keys = {
+      -- trouble
+      {
+        mode = "n",
+        "<leader>xx",
+        "<cmd>TroubleToggle<cr>",
+        desc = "Trouble toggle",
+      },
+      {
+        mode = "n",
+        "<leader>xd",
+        function()
+          require("trouble").toggle("document_diagnostics")
+        end,
+        desc = "Document Diagnostic",
+      },
+      {
+        mode = "n",
+        "<leader>xw",
+        function()
+          require("trouble").toggle("workspace_diagnostics")
+        end,
+        desc = "Workspace Diagnostic",
+      },
+      {
+        mode = "n",
+        "<leader>xl",
+        function()
+          require("trouble").toggle("loclist")
+        end,
+        desc = "Location List",
+      },
+      {
+        mode = "n",
+        "<leader>xq",
+        function()
+          require("trouble").toggle("quickfix")
+        end,
+        desc = "Quickfix",
+      },
+    },
     config = function()
       local result, trouble = pcall(require, "trouble")
       if not result then

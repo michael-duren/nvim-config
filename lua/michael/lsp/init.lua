@@ -1,24 +1,4 @@
 local m_icons = require("michael.core.icons")
-local servers = {
-  "clangd",
-  "cssls",
-  "cssmodules_ls",
-  "emmet_ls",
-  "eslint",
-  "html",
-  "jsonls",
-  "lemminx",
-  "lua_ls",
-  "omnisharp",
-  "rust_analyzer",
-  "tsserver",
-  "vimls",
-  "html",
-}
-require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = servers,
-})
 
 local lspconfig = require("lspconfig")
 local lsp_windows = require("lspconfig.ui.windows").default_options
