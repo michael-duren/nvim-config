@@ -92,4 +92,16 @@ return {
 			},
 		},
 	},
+	-- testing
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/neotest-plenary",
+		},
+		opts = function(_, opts)
+			vim.list_extend(opts.adapters, {
+				require("neotest-plenary"),
+			})
+		end,
+	},
 }

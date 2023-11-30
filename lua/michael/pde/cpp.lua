@@ -1,4 +1,4 @@
-if not require("config").pde.cpp then
+if not require("michael.core").pde.cpp then
 	return {}
 end
 
