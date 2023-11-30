@@ -30,16 +30,17 @@ return {
 			},
 		},
 	},
-	-- {
-	-- 	"hrsh7th/nvim-cmp",
-	-- 	dependencies = {
-	-- 		{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
-	-- 	},
-	-- 	opts = function(_, _)
-	-- 		local formatter = require("tailwindcss-colorizer-cmp").formatter
-	-- 		require("cmp").config.formatting = {
-	-- 			format = formatter,
-	-- 		}
-	-- 	end,
-	-- },
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+		},
+		opts = function(_, opts)
+			local format_kinds = opts.formatting.format
+			opts.formatting.format = function(entry, item)
+				format_kinds(entry, item)
+				return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+			end
+		end,
+	},
 }

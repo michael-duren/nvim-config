@@ -17,6 +17,7 @@ return {
 		opts = function()
 			local cmp = require("cmp")
 			require("cmp-nuget").setup({})
+			local icons = require("michael.core.icons")
 
 			return {
 				snippet = {
@@ -46,6 +47,13 @@ return {
 					source_name = {
 						nuget = "(NuGet)",
 					},
+					format = function(_, vim_item)
+						local icon = icons.kind[vim_item.kind]
+						if icon then
+							vim_item.kind = icon
+						end
+						return vim_item
+					end,
 				},
 			}
 		end,
