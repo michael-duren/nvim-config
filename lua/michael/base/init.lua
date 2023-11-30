@@ -3,7 +3,6 @@ return {
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
 
-	-- nvim tree
 	-- copilot
 	{
 		"github/copilot.vim",
@@ -15,21 +14,6 @@ return {
 		event = "InsertEnter",
 		opts = {},
 	},
-	-- nvim colorizer
-	{ "norcalli/nvim-colorizer.lua", event = "BufRead" },
-	-- rust tools
-	{ "simrat39/rust-tools.nvim" },
-	-- tailwindcss colors
-	{
-		"themaxmarchuk/tailwindcss-colors.nvim",
-		-- load only on require("tailwindcss-colors")
-		-- run the setup function after plugin is loaded
-		config = function()
-			-- pass config options here (or nothing to use defaults)
-			require("tailwindcss-colors").setup()
-		end,
-	},
-	{ "norcalli/nvim-colorizer.lua" }, -- colorize hex colors
 	-- markdown preview
 	{
 		"iamcco/markdown-preview.nvim",
@@ -39,8 +23,6 @@ return {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	-- CSS color stuff
-	{ "uga-rosa/ccc.nvim", opts = {} },
 	-- matching
 	{
 		"andymass/vim-matchup",
