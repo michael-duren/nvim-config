@@ -318,6 +318,12 @@ local keybindings = {
 		command = "<cmd>Gitsigns blame_line<CR>",
 		description = "Blame line",
 	},
+	{
+		mode = "n",
+		key = "<leader>U",
+		command = "<cmd>Lazy update<CR>",
+		description = "Lazy update",
+	},
 }
 
 for _, bind in ipairs(keybindings) do
