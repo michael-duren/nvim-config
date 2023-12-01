@@ -166,7 +166,7 @@ local keybindings = {
 	},
 	{
 		mode = "n",
-		key = "<leader>lR",
+		key = "<leader>R",
 		command = "<cmd>LspRestart<CR>",
 		description = "Restart LSP",
 	},
