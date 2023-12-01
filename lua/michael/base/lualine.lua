@@ -7,9 +7,10 @@ return {
 			local icons = require("michael.core.icons")
 
 			local function trim_text(text, max_length)
-				if text:len() > max_length then
+				if #text > max_length then
 					return text:sub(1, max_length - 3) .. "..."
 				end
+				return text
 			end
 
 			local function show_active_lsp_clients()
@@ -23,7 +24,9 @@ return {
 					table.insert(client_names, client.name)
 				end
 
-				return "[" .. trim_text(table.concat(client_names, ", "), 50) .. "]"
+				local client_string = "[" .. table.concat(client_names, ", ") .. "]"
+
+				return trim_text(client_string, 60)
 			end
 
 			require("lualine").setup({
