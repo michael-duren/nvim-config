@@ -61,7 +61,7 @@
   "Console.WriteLine": {
     "prefix": "cw",
     "body": [
-      "System.Console.WriteLine(${TM_SELECTED_TEXT}$0);"
+      "Console.WriteLine(${TM_SELECTED_TEXT}$0);"
     ],
     "description": "Console.WriteLine"
   },

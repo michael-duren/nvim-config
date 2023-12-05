@@ -145,6 +145,12 @@ local keybindings = {
 		description = "LSP go to implementation",
 	},
 	{ mode = "n", key = "K", command = "<cmd>lua vim.lsp.buf.hover()<CR>", description = "LSP hover" },
+	{
+		mode = "n",
+		key = "<leader>lf",
+		command = "<cmd>lua vim.lsp.buf.format()<CR>",
+		description = "LSP format",
+	},
 	-- LSP Menu
 	{
 		mode = "n",

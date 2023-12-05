@@ -132,4 +132,14 @@ return {
 			})
 		end,
 	},
+	{
+		"L3MON4D3/LuaSnip",
+		config = function()
+			local ls = require("luasnip")
+			-- local m = require("michael.utils.load_snippets")
+			-- local snippets = m.load_snippets(vim.fn.stdpath("config") .. "/snippets/csharp.json", ls)
+			ls.filetype_set("csharp", {})
+			-- ls.add("csharp", snippets)
+		end,
+	},
 }

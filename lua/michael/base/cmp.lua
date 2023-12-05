@@ -38,6 +38,7 @@ return {
 				}),
 				sources = cmp.config.sources({
 					{ name = "nuget", keyword_length = 0 },
+					{ name = "vsnip" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 				}, {
