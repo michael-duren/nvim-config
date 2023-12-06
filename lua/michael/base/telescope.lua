@@ -63,6 +63,12 @@ return {
 				"<cmd>Telescope git_commits<CR>",
 				desc = "Git commits",
 			},
+			-- find help
+			{
+				"<leader>fh",
+				"<cmd>Telescope help_tags<CR>",
+				desc = "Find help",
+			},
 		},
 		opts = {
 			deafults = {
