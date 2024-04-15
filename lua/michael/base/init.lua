@@ -2,12 +2,12 @@ return {
 	-- start of base
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
-
-	-- copilot
-	{
-		"github/copilot.vim",
-		lazy = false,
-	},
+	{ "nvim-neotest/nvim-nio" },
+	-- -- copilot
+	-- {
+	-- 	"github/copilot.vim",
+	-- 	lazy = false,
+	-- },
 	-- auto pairs
 	{
 		"windwp/nvim-autopairs",
