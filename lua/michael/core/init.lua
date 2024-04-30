@@ -8,7 +8,7 @@ return {
 		docker = true,
 		elixir = true,
 		flutter = false,
-		go = false,
+		go = true,
 		html = true,
 		java = false,
 		json = true,

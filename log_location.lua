@@ -1,1 +1,1 @@
-:lua =require(vim.lsp.log).get_filename()
+-- :lua =require(vim.lsp.log).get_filename()
