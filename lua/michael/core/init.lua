@@ -1,10 +1,10 @@
 return {
 	pde = {
-		-- ai = false,
+		ai = false,
 		angular = true,
 		cpp = false,
 		csharp = true,
-		copilot = false,
+		copilot = true,
 		docker = true,
 		elixir = true,
 		flutter = false,

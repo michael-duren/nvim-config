@@ -6,26 +6,55 @@ return {
 			require("nvim-web-devicons").setup()
 		end,
 	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {
+	-- 		style = "night",
+	-- 		transparent = true,
+	-- 		styles = {
+	-- 			sidebars = "transparent",
+	-- 			floats = "transparent",
+	-- 		},
+	-- 	},
+	-- 	config = function(_, opts)
+	-- 		local present, tokyonight = pcall(require, "tokyonight")
+	-- 		if present then
+	-- 			tokyonight.setup(opts)
+	-- 			tokyonight.load()
+	-- 		end
+	-- 	end,
+	-- },
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("kanagawa").setup({
+	-- 			-- transparent = true,
+	-- 			-- dimInactive = true,
+	-- 		})
+	-- 		vim.cmd("colorscheme kanagawa-dragon")
+	-- 	end,
+	-- },
 	{
-		"folke/tokyonight.nvim",
+		"scottmckendry/cyberdream.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = {
-			style = "night",
-			transparent = true,
-			styles = {
-				sidebars = "transparent",
-				floats = "transparent",
-			},
-		},
-		config = function(_, opts)
-			local present, tokyonight = pcall(require, "tokyonight")
-			if present then
-				tokyonight.setup(opts)
-				tokyonight.load()
-			end
+		config = function()
+			require("cyberdream").setup({
+				-- Recommended - see "Configuring" below for more config options
+				transparent = true,
+				italic_comments = true,
+				hide_fillchars = true,
+				borderless_telescope = true,
+				terminal_colors = true,
+			})
+			vim.cmd("colorscheme cyberdream") -- set the colorscheme
 		end,
 	},
+
 	-- themes / color schemes
 	{ "HiPhish/nvim-ts-rainbow2" },
 	-- barbeque
