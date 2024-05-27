@@ -155,6 +155,7 @@ local icons = {
 		HalfCircleRight = "",
 		HalfCircleLeftThin = "",
 		HalfCircleRightThin = "",
+		Alien = "󰯉",
 	},
 	dap = {
 		Play = "",

@@ -19,7 +19,7 @@ require("lazy").setup({
 	defaults = { lazy = true, version = nil },
 	install = { missing = true, colorscheme = { "tokyonight", "catppuccin" } },
 	dev = { patterns = jit.os:find("Windows") and {} or { "alpha2phi" } },
-	checker = { enabled = true },
+	checker = { enabled = false },
 	performance = {
 		cache = {
 			enabled = true,

@@ -29,12 +29,12 @@ return {
 				return trim_text(client_string, 60)
 			end
 
-			local cyberdream = require("lualine.themes.cyberdream")
+			-- local cyberdream = require("lualine.themes.cyberdream")
 
 			require("lualine").setup({
 				options = {
 					icons_enabled = true,
-					theme = "cyberdream",
+					theme = "auto",
 					component_separators = {
 						left = icons.misc.HalfCircleRightThin,
 						right = icons.misc.HalfCircleLeftThin,

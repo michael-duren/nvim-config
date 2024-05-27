@@ -24,7 +24,7 @@ return {
 		scala = true,
 		solidity = false,
 		svelte = true,
-		tailwind = false,
+		tailwind = true,
 		terraform = true,
 		typescript = true,
 		vuejs = true,

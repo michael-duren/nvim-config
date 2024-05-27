@@ -3,7 +3,17 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		dependencies = { "DaikyXendo/nvim-material-icon" },
 		config = function()
+			-- local icons = require("michael.core.icons")
 			require("nvim-web-devicons").setup()
+			-- require("nvim-web-devicons").setup({
+			-- 	override = {
+			-- 		astro = {
+			-- 			icon = icons.misc.Alien,
+			-- 			color = "#EF8547",
+			-- 			name = "astro",
+			-- 		},
+			-- 	},
+			-- })
 		end,
 	},
 	-- {
@@ -26,36 +36,35 @@ return {
 	-- 		end
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("kanagawa").setup({
-	-- 			-- transparent = true,
-	-- 			-- dimInactive = true,
-	-- 		})
-	-- 		vim.cmd("colorscheme kanagawa-dragon")
-	-- 	end,
-	-- },
 	{
-		"scottmckendry/cyberdream.nvim",
+		"rebelot/kanagawa.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("cyberdream").setup({
-				-- Recommended - see "Configuring" below for more config options
+			require("kanagawa").setup({
 				transparent = true,
-				italic_comments = true,
-				hide_fillchars = true,
-				borderless_telescope = true,
-				terminal_colors = true,
+				-- dimInactive = true,
 			})
-			vim.cmd("colorscheme cyberdream") -- set the colorscheme
+			vim.cmd("colorscheme kanagawa-dragon")
 		end,
 	},
+	-- {
+	-- 	"scottmckendry/cyberdream.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("cyberdream").setup({
+	-- 			-- Recommended - see "Configuring" below for more config options
+	-- 			transparent = true,
+	-- 			italic_comments = true,
+	-- 			hide_fillchars = true,
+	-- 			borderless_telescope = true,
+	-- 			terminal_colors = true,
+	-- 		})
+	-- 		vim.cmd("colorscheme cyberdream") -- set the colorscheme
+	-- 	end,
+	-- },
 
-	-- themes / color schemes
 	{ "HiPhish/nvim-ts-rainbow2" },
 	-- barbeque
 	{
